@@ -1,0 +1,50 @@
+{
+  "name": "cityu-fcc-extension",
+  "version": "0.0.1",
+  "description": "The Chrome Extension for City University of Seattle's Amazon Apprenti Program.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "testCoverage": "jest --coverage --runInBand",
+    "testWatch": "jest --watch",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+  },
+  "keywords": [
+    "City University of Seattle",
+    "Amazon Apprentice",
+    "Free Code Camp"
+  ],
+  "author": "Kevin Wang",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PengWang0316/NintexV2.git"
+  },
+  "sideEffects": false,
+  "jest": {
+    "testEnvironment": "jest-environment-jsdom-global",
+    "testURL": "http://localhost",
+    "verbose": true
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/react-test-renderer": "^16.8.2",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "coveralls": "^3.0.4",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-import-resolver-typescript": "^1.1.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.1.0",
+    "jest-environment-jsdom": "^24.0.0",
+    "jest-environment-jsdom-global": "^1.1.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.2",
+  }
+}
