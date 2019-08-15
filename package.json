@@ -4,7 +4,7 @@
   "description": "The Chrome Extension for City University of Seattle's Amazon Apprenti Program.",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp src/*.html build/ && cp src/*.js build/",
     "test": "jest",
     "testCoverage": "jest --coverage --runInBand",
     "testWatch": "jest --watch",
