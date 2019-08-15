@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-      "outDir": "./public/",
+      "outDir": "./build/",
       "sourceMap": false,
       "alwaysStrict": true,
       "removeComments": true,
-      "module": "esnext",
+      "module": "commonjs",
       "target": "es5",
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,

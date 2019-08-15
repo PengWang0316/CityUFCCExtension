@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "My Cool Extension",
+  "name": "CityU FCC Extension",
   "version": "0.1",
   "content_scripts": [
     {
       "matches": [
-        "https://learn.freecodecamp.org"
+        "https://learn.freecodecamp.org/*"
       ],
       "js": ["./build/content.js"]
     }
