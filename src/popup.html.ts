@@ -1,6 +1,13 @@
+/// <reference types="chrome"/>
 declare const $;
+// declare const chrome;
 
 const DATA_URL = 'https://gist.githubusercontent.com/PengWang0316/59445f5eaec9446a94c56a62319436f2/raw/bc707c9cdc6b6cdc052fe5ac66b6808699f4dc35/AmazonApprentiFCC.json';
+
+const sendClick = (event) => {
+  console.log($(event.target).attr('data-url'));
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => chrome.tabs.sendMessage(tabs[0].id, { url: $(event.target).attr('data-url') }));
+};
 
 const formatUI = (courseData: object) => {
   const mainElement = $('main');
@@ -27,13 +34,17 @@ const formatUI = (courseData: object) => {
         <ul class="card-body">
       `;
       Object.keys(courseData[courseKey][moduleKey]).forEach((challengeKey: string) => {
-        innerHTML += `<li>${challengeKey}</li>`;
+        // innerHTML += `<li onClick="sendClick(${courseData[courseKey][moduleKey][challengeKey]})">${challengeKey}</li>`;
+        innerHTML += `<li data-url="${courseData[courseKey][moduleKey][challengeKey]}">${challengeKey}</li>`;
       });
       innerHTML += '</ul></div></div>';
     });
 
     innerHTML += '</div>';
     mainElement.append(innerHTML);
+
+    // Add event listeners
+    $(mainElement).find('li').toArray().forEach((li) => li.addEventListener('click', sendClick));
   });
 };
 
