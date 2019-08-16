@@ -4,10 +4,7 @@ declare const $;
 
 const DATA_URL = 'https://gist.githubusercontent.com/PengWang0316/59445f5eaec9446a94c56a62319436f2/raw/bc707c9cdc6b6cdc052fe5ac66b6808699f4dc35/AmazonApprentiFCC.json';
 
-const sendClick = (event) => {
-  console.log($(event.target).attr('data-url'));
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => chrome.tabs.sendMessage(tabs[0].id, { url: $(event.target).attr('data-url') }));
-};
+const sendClick = (event: Event) => chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => chrome.tabs.sendMessage(tabs[0].id, { url: $(event.target).attr('data-url') }));
 
 const formatUI = (courseData: object) => {
   const mainElement = $('main');
