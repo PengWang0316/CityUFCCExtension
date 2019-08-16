@@ -16,6 +16,7 @@
     "default_title": "CityU Apprenti Program"
   },
   "permissions": [
-    "storage"
+    "storage",
+    "tabs"
   ]
 }
