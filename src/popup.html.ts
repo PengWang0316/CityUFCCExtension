@@ -12,7 +12,7 @@ const formatUI = (courseData: object) => {
   Object.keys(courseData).forEach((courseKey: string) => {
     const coursePrefix = courseKey.slice(0, 5);
     let innerHTML = `
-      <div><h3>${courseKey}</h3></div>
+      <div><h5>${courseKey}</h5></div>
       <div class="accordion" id="${coursePrefix}">
     `;
     Object.keys(courseData[courseKey]).forEach((moduleKey: string) => {
