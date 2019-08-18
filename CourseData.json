@@ -1,0 +1,14 @@
+{
+  "CS142 Web Programming JavaScript": {
+    "Module1": {
+      "Store Multiple Values in one Variable using JavaScript Arrays": "/javascript-algorithms-and-data-structures/basic-javascript/store-multiple-values-in-one-variable-using-javascript-arrays",
+      "Golf Code": "/javascript-algorithms-and-data-structures/basic-javascript/golf-code",
+      "Profile Lookup": "/javascript-algorithms-and-data-structures/basic-javascript/profile-lookup"
+    },
+    "Module2": {
+      "Create an Export Fallback with export default": "/javascript-algorithms-and-data-structures/es6/create-an-export-fallback-with-export-default",
+      "PassedImport a Default Export": "/javascript-algorithms-and-data-structures/es6/import-a-default-export",
+      "Declare JavaScript Variables": "/javascript-algorithms-and-data-structures/basic-javascript/declare-javascript-variables"
+    }
+  }
+}
