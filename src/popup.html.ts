@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.windows.create({
       url: './build/popup.html',
       type: 'panel',
-      width: 500,
+      width: 580,
       height: 600,
     });
     window.close();
