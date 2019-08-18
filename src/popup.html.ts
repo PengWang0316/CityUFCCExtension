@@ -1,10 +1,11 @@
 /// <reference types="chrome"/>
 declare const $;
 // declare const chrome;
+const FCC_URL = 'https://learn.freecodecamp.org/';
 
 const DATA_URL = 'https://gist.githubusercontent.com/PengWang0316/59445f5eaec9446a94c56a62319436f2/raw/bc707c9cdc6b6cdc052fe5ac66b6808699f4dc35/AmazonApprentiFCC.json';
 
-const sendClick = (event: Event) => chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => chrome.tabs.sendMessage(tabs[0].id, { url: $(event.target).attr('data-url') }));
+const sendClick = (event: Event) => chrome.tabs.query({ url: FCC_URL }, (tabs) => chrome.tabs.sendMessage(tabs[0].id, { url: $(event.target).attr('data-url') }));
 
 const formatUI = (courseData: object) => {
   const mainElement = $('main');
@@ -49,5 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
   $.get(DATA_URL, (data: string) => {
     // Gist always return a string with qutations arround it. We have to remove them before parsing.
     formatUI(JSON.parse(data.slice(1, data.length - 1)));
+  });
+
+  // Register the listener for the open panel button
+  $('#openPanelBtn').click(() => {
+    chrome.windows.create({
+      url: './build/popup.html',
+      type: 'panel',
+      width: 500,
+      height: 600,
+    });
+    window.close();
   });
 });
