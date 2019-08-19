@@ -28,12 +28,28 @@
       margin-right: 5px;
       display: inline-block;
     }
+    footer {
+      display: flex;
+      justify-content: flex-end;
+      margin: 20px 0;
+    }
+    footer a {
+      font-size: 0.8rem;
+      color: dimgray;
+      transition: color 0.6s linear;
+      margin-right: 30px;
+    }
+    footer a:hover {
+      color: darkcyan;
+      cursor: pointer;
+    }
   </style>
   <title>City University of Seattle Amazon Apprenti Program</title>
 </head>
 <body>
   <div class="btnDiv"><button id="openPanelBtn" class="btn btn-primary btn-sm">Open in a panel</button></div>
   <main></main>
+  <footer><span><a href="https://github.com/PengWang0316/CityUFCCExtension" title="Check the source code" target="_blank">Developed by Kevin Wang</a></span></footer>
   <script src="jquery-3.4.1.min.js"></script>
   <script src="popper.min.js"></script>
   <script src="bootstrap.min.js"></script>
