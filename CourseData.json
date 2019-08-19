@@ -2,6 +2,7 @@
   "CS142 Web Programming JavaScript": {
     "Module1": {
       "Store Multiple Values in one Variable using JavaScript Arrays": "/javascript-algorithms-and-data-structures/basic-javascript/store-multiple-values-in-one-variable-using-javascript-arrays",
+      "Comment Your JavaScript Code": "/javascript-algorithms-and-data-structures/basic-javascript/comment-your-javascript-code",
       "Golf Code": "/javascript-algorithms-and-data-structures/basic-javascript/golf-code",
       "Profile Lookup": "/javascript-algorithms-and-data-structures/basic-javascript/profile-lookup"
     },
