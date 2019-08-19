@@ -8,7 +8,7 @@ const MARK_BG_COLOR = 'yellow';
 //   offsetTop: number;
 // }
 let lastElement;
-let javascriptSction;
+// let javascriptSction;
 
 const emphasizeElement = (url: string) => {
   if (lastElement) lastElement.style.backgroundColor = '';
@@ -26,21 +26,24 @@ const clickAllSubSection = (element: HTMLElement) => {
   }, 500);
 };
 
+// Find the JavaScript section
+const getJavaScriptSection = (isFirst = false): HTMLElement => {
+  let javascriptSction;
+  document.querySelectorAll('h4').forEach((element: HTMLElement) => {
+    if (element.innerText === JAVASCRIPT_SECTION_TITLE) {
+      if (isFirst) element.click();
+      javascriptSction = element.parentNode.parentNode.lastChild;
+    }
+  });
+  return javascriptSction;
+};
+
 // Add a message listener to response the click event in the popup page or asking content
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.url) emphasizeElement(request.url);
-  else sendResponse({ html: javascriptSction.innerHTML });
+  else sendResponse({ html: getJavaScriptSection().innerHTML });
 });
 
-const init = () => {
-  // Click the JavaScript superblock and all sub sections under it
-  document.querySelectorAll('h4').forEach((element: HTMLElement) => {
-    if (element.innerText === JAVASCRIPT_SECTION_TITLE) {
-      element.click();
-      javascriptSction = element.parentNode.parentNode.lastChild;
-      clickAllSubSection(javascriptSction);
-    }
-  });
-};
+const init = () => clickAllSubSection(getJavaScriptSection(true));
 
 init();
