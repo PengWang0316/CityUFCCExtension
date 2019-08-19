@@ -1,7 +1,13 @@
 {
   "manifest_version": 2,
   "name": "CityU FCC Extension",
-  "version": "0.2",
+  "version": "0.3",
+  "description": "The extension that can help using FCC more effectively.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "content_scripts": [
     {
       "matches": [
@@ -19,5 +25,6 @@
     "storage",
     "tabs",
     "https://raw.githubusercontent.com/PengWang0316/CityUFCCExtension/master/CourseData.json"
-  ]
+  ],
+  "homepage_url": "https://github.com/PengWang0316/CityUFCCExtension"
 }
