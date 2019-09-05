@@ -39,9 +39,18 @@
       "Declare a Read-Only Variable with the const Keyword": "/javascript-algorithms-and-data-structures/es6/declare-a-read-only-variable-with-the-const-keyword"
     },
     "Module2": {
-      "Create an Export Fallback with export default": "/javascript-algorithms-and-data-structures/es6/create-an-export-fallback-with-export-default",
-      "PassedImport a Default Export": "/javascript-algorithms-and-data-structures/es6/import-a-default-export",
-      "Declare JavaScript Variables": "/javascript-algorithms-and-data-structures/basic-javascript/declare-javascript-variables"
+      "Write Reusable JavaScript with Functions": "/javascript-algorithms-and-data-structures/basic-javascript/write-reusable-javascript-with-functions",
+      "Passing Values to Functions with Arguments": "/javascript-algorithms-and-data-structures/basic-javascript/passing-values-to-functions-with-arguments",
+      "Global Scope and Functions": "/javascript-algorithms-and-data-structures/basic-javascript/global-scope-and-functions",
+      "Local Scope and Functions": "/javascript-algorithms-and-data-structures/basic-javascript/local-scope-and-functions",
+      "Global vs. Local Scope in Functions": "/javascript-algorithms-and-data-structures/basic-javascript/global-vs--local-scope-in-functions",
+      "Return a Value from a Function with Return": "/javascript-algorithms-and-data-structures/basic-javascript/return-a-value-from-a-function-with-return",
+      "Understanding Undefined Value returned from a Function": "/javascript-algorithms-and-data-structures/basic-javascript/understanding-undefined-value-returned-from-a-function",
+      "Assignment with a Returned Value": "/javascript-algorithms-and-data-structures/basic-javascript/assignment-with-a-returned-value",
+      "Returning Boolean Values from Functions": "/javascript-algorithms-and-data-structures/basic-javascript/returning-boolean-values-from-functions",
+      "Return Early Pattern for Functions": "/javascript-algorithms-and-data-structures/basic-javascript/return-early-pattern-for-functions",
+      "Use Arrow Functions to Write Concise Anonymous Functions": "/javascript-algorithms-and-data-structures/es6/use-arrow-functions-to-write-concise-anonymous-functions",
+      "Write Arrow Functions with Parameters": "/javascript-algorithms-and-data-structures/es6/write-arrow-functions-with-parameters"
     }
   }
 }
