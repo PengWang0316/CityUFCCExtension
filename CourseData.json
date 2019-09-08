@@ -32,11 +32,10 @@
       "Golf Code": "/javascript-algorithms-and-data-structures/basic-javascript/golf-code",
       "Replacing If Else Chains with Switch": "/javascript-algorithms-and-data-structures/basic-javascript/replacing-if-else-chains-with-switch",
       "Counting Cards": "/javascript-algorithms-and-data-structures/basic-javascript/counting-cards",
-      "Iterate with JavaScript While Loops": "/javascript-algorithms-and-data-structures/basic-javascript/iterate-with-javascript-while-loops",
-      "Iterate with JavaScript For Loops": "/javascript-algorithms-and-data-structures/basic-javascript/iterate-with-javascript-for-loops",
       "Use the Conditional (Ternary) Operator": "/javascript-algorithms-and-data-structures/basic-javascript/use-the-conditional-ternary-operator",
       "Explore Differences Between the var and let Keywords": "/javascript-algorithms-and-data-structures/es6/explore-differences-between-the-var-and-let-keywords",
-      "Declare a Read-Only Variable with the const Keyword": "/javascript-algorithms-and-data-structures/es6/declare-a-read-only-variable-with-the-const-keyword"
+      "Declare a Read-Only Variable with the const Keyword": "/javascript-algorithms-and-data-structures/es6/declare-a-read-only-variable-with-the-const-keyword",
+      "Create Strings using Template Literals": "/javascript-algorithms-and-data-structures/es6/create-strings-using-template-literals"
     },
     "Module2": {
       "Write Reusable JavaScript with Functions": "/javascript-algorithms-and-data-structures/basic-javascript/write-reusable-javascript-with-functions",
