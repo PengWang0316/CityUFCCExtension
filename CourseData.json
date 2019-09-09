@@ -55,7 +55,31 @@
       "Store Multiple Values in one Variable using JavaScript Arrays": "/javascript-algorithms-and-data-structures/basic-javascript/store-multiple-values-in-one-variable-using-javascript-arrays",
       "Nest one Array within Another Array": "/javascript-algorithms-and-data-structures/basic-javascript/nest-one-array-within-another-array",
       "Access Array Data with Indexes": "/javascript-algorithms-and-data-structures/basic-javascript/access-array-data-with-indexes",
-      "Modify Array Data With Indexes": "/javascript-algorithms-and-data-structures/basic-javascript/modify-array-data-with-indexes"
+      "Modify Array Data With Indexes": "/javascript-algorithms-and-data-structures/basic-javascript/modify-array-data-with-indexes",
+      "Access Multi-Dimensional Arrays With Indexes": "/javascript-algorithms-and-data-structures/basic-javascript/access-multi-dimensional-arrays-with-indexes",
+      "Manipulate Arrays With push()": "/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-push",
+      "Manipulate Arrays With pop()": "/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-pop",
+      "Manipulate Arrays With shift()": "/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-shift",
+      "Manipulate Arrays With unshift()": "/javascript-algorithms-and-data-structures/basic-javascript/manipulate-arrays-with-unshift",
+      "Shopping List": "/javascript-algorithms-and-data-structures/basic-javascript/shopping-list",
+      "Stand in Line": "/javascript-algorithms-and-data-structures/basic-javascript/stand-in-line",
+      "Iterate with JavaScript While Loops": "/javascript-algorithms-and-data-structures/basic-javascript/iterate-with-javascript-while-loops",
+      "Iterate with JavaScript For Loops": "/javascript-algorithms-and-data-structures/basic-javascript/iterate-with-javascript-for-loops",
+      "Iterate Through an Array with a For Loop": "/javascript-algorithms-and-data-structures/basic-javascript/iterate-through-an-array-with-a-for-loop",
+      "Iterate with JavaScript Do...While Loops": "/javascript-algorithms-and-data-structures/basic-javascript/iterate-with-javascript-do---while-loops",
+      "Build JavaScript Objects": "/javascript-algorithms-and-data-structures/basic-javascript/build-javascript-objects",
+      "Accessing Object Properties with Dot Notation": "/javascript-algorithms-and-data-structures/basic-javascript/accessing-object-properties-with-dot-notation",
+      "Accessing Object Properties with Bracket Notation": "/javascript-algorithms-and-data-structures/basic-javascript/accessing-object-properties-with-bracket-notation",
+      "Accessing Object Properties with Variables": "/javascript-algorithms-and-data-structures/basic-javascript/accessing-object-properties-with-variables",
+      "Updating Object Properties": "/javascript-algorithms-and-data-structures/basic-javascript/updating-object-properties",
+      "Add New Properties to a JavaScript Object": "/javascript-algorithms-and-data-structures/basic-javascript/add-new-properties-to-a-javascript-object",
+      "Delete Properties from a JavaScript Object": "/javascript-algorithms-and-data-structures/basic-javascript/delete-properties-from-a-javascript-object",
+      "Using Objects for Lookups": "/javascript-algorithms-and-data-structures/basic-javascript/using-objects-for-lookups",
+      "Testing Objects for Properties": "/javascript-algorithms-and-data-structures/basic-javascript/testing-objects-for-properties",
+      "Manipulating Complex Objects": "/javascript-algorithms-and-data-structures/basic-javascript/manipulating-complex-objects",
+      "Accessing Nested Objects": "/javascript-algorithms-and-data-structures/basic-javascript/accessing-nested-objects",
+      "Accessing Nested Arrays": "/javascript-algorithms-and-data-structures/basic-javascript/accessing-nested-arrays",
+      "Record Collection": "/javascript-algorithms-and-data-structures/basic-javascript/record-collection"
     }
   }
 }
