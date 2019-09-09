@@ -50,6 +50,12 @@
       "Return Early Pattern for Functions": "/javascript-algorithms-and-data-structures/basic-javascript/return-early-pattern-for-functions",
       "Use Arrow Functions to Write Concise Anonymous Functions": "/javascript-algorithms-and-data-structures/es6/use-arrow-functions-to-write-concise-anonymous-functions",
       "Write Arrow Functions with Parameters": "/javascript-algorithms-and-data-structures/es6/write-arrow-functions-with-parameters"
+    },
+    "Module3": {
+      "Store Multiple Values in one Variable using JavaScript Arrays": "/javascript-algorithms-and-data-structures/basic-javascript/store-multiple-values-in-one-variable-using-javascript-arrays",
+      "Nest one Array within Another Array": "/javascript-algorithms-and-data-structures/basic-javascript/nest-one-array-within-another-array",
+      "Access Array Data with Indexes": "/javascript-algorithms-and-data-structures/basic-javascript/access-array-data-with-indexes",
+
     }
   }
 }
