@@ -32,19 +32,35 @@ const formatUI = (passedMap: object) => {
       </div>
 
       <div id="${moduleCollapseId}" class="collapse" aria-labelledby="${moduleKey}" data-parent="#${coursePrefix}">
-        <ul class="card-body">
+        <div class="card-body" id="${moduleKey}Child">
       `;
-      Object.keys(moduleData[courseKey][moduleKey]).forEach((challengeKey: string) => {
+
+      let childCount = 1;
+      Object.keys(moduleData[courseKey][moduleKey]).forEach((sectionKey: string) => {
+        const sectionCollapseId = `collapse${moduleKey}${childCount}`;
         innerHTML += `
-          <li data-url="${moduleData[courseKey][moduleKey][challengeKey]}">
-            <img class="checkIcon" src="${passedMap[moduleData[courseKey][moduleKey][challengeKey]] ? './checked.png' : './unchecked.png'}" alt="passed" />${challengeKey}
-          </li>`;
+        <div class="card">
+          <div class="card-header">
+            <a href="#" data-toggle="collapse" data-target="#${sectionCollapseId}">${sectionKey}</a>
+          </div>
+
+          <div class="card-body collapse" data-parent="#${moduleKey}Child" id="${sectionCollapseId}">
+          <ul>
+        `;
+        Object.keys(moduleData[courseKey][moduleKey][sectionKey]).forEach((challengeKey: string) => {
+          innerHTML += `
+        <li data-url="${moduleData[courseKey][moduleKey][sectionKey][challengeKey]}">
+          <img class="checkIcon" src="${passedMap[moduleData[courseKey][moduleKey][sectionKey][challengeKey]] ? './checked.png' : './unchecked.png'}" alt="passed" />${challengeKey}
+        </li>`;
+        });
+        innerHTML += '</ul></div></div>';
       });
-      innerHTML += '</ul></div></div>';
+      innerHTML += '</div></div></div>';
     });
 
     innerHTML += '</div>';
     mainElement.html(innerHTML);
+    console.log(innerHTML);
 
     // Add event listeners
     $(mainElement).find('li').toArray().forEach((li) => li.addEventListener('click', sendClick));
