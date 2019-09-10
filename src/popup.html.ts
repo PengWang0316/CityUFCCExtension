@@ -4,7 +4,8 @@ declare const $;
 const FCC_URL = 'https://learn.freecodecamp.org/';
 
 // Use a url from the GitHub directly since the gist URL will change after each update
-const DATA_URL = 'https://raw.githubusercontent.com/PengWang0316/CityUFCCExtension/master/CourseData.json';
+//const DATA_URL = 'https://raw.githubusercontent.com/PengWang0316/CityUFCCExtension/master/CourseData.json';
+const DATA_URL = 'https://raw.githubusercontent.com/datphan126/CityUFCCExtension_DatVersion/master/CourseDataTest.json';
 let moduleData;
 
 // The method can send the click event to the content page
@@ -20,6 +21,7 @@ const formatUI = (passedMap: object) => {
       <div class="accordion" id="${coursePrefix}">
     `;
     Object.keys(moduleData[courseKey]).forEach((moduleKey: string) => {
+      let isModuleCompleted = true;
       const moduleCollapseId = `collapse${moduleKey}`;
       innerHTML += `
       <div class="card">
@@ -28,6 +30,7 @@ const formatUI = (passedMap: object) => {
           <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#${moduleCollapseId}" aria-expanded="true" aria-controls="${moduleCollapseId}">
             ${moduleKey}
           </button>
+          <img class="checkIcon" id="check${moduleKey}" src="./checked.png" alt="passed" />
         </h2>
       </div>
 
@@ -48,11 +51,16 @@ const formatUI = (passedMap: object) => {
           <ul>
         `;
         Object.keys(moduleData[courseKey][moduleKey][sectionKey]).forEach((challengeKey: string) => {
+          //Check if any challenge is not completed
+          passedMap[moduleData[courseKey][moduleKey][sectionKey][challengeKey]] ? isModuleCompleted = true : isModuleCompleted = false;
           innerHTML += `
         <li data-url="${moduleData[courseKey][moduleKey][sectionKey][challengeKey]}">
           <img class="checkIcon" src="${passedMap[moduleData[courseKey][moduleKey][sectionKey][challengeKey]] ? './checked.png' : './unchecked.png'}" alt="passed" />${challengeKey}
         </li>`;
         });
+
+        // Update the check icon of the module based on the completion status of the module
+        if(isModuleCompleted === false) innerHTML = innerHTML.replace(`id="check${moduleKey}" src="./checked.png"`,`id="check${moduleKey}" src="./unchecked.png"`);
         innerHTML += '</ul></div></div>';
       });
       innerHTML += '</div></div></div>';
@@ -60,7 +68,6 @@ const formatUI = (passedMap: object) => {
 
     innerHTML += '</div>';
     mainElement.html(innerHTML);
-    console.log(innerHTML);
 
     // Add event listeners
     $(mainElement).find('li').toArray().forEach((li) => li.addEventListener('click', sendClick));
