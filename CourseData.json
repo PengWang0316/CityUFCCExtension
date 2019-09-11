@@ -249,7 +249,7 @@
       }
     },
     "Module7": {
-      "ES": {
+      "ES6": {
         "Explore Differences Between the var and let Keywords": "/javascript-algorithms-and-data-structures/es6/explore-differences-between-the-var-and-let-keywords",
         "Compare Scopes of the var and let Keywords": "/javascript-algorithms-and-data-structures/es6/compare-scopes-of-the-var-and-let-keywords",
         "Declare a Read-Only Variable with the const Keyword": "/javascript-algorithms-and-data-structures/es6/declare-a-read-only-variable-with-the-const-keyword",
