@@ -20,7 +20,7 @@ const formatUI = (passedMap: object) => {
       <div class="accordion" id="${coursePrefix}">
     `;
     Object.keys(moduleData[courseKey]).forEach((moduleKey: string) => {
-      let isModuleCompleted = true;
+      let isModuleCompleted: boolean = true;
       const moduleCollapseId = `collapse${moduleKey}`;
       innerHTML += `
       <div class="card">
@@ -30,6 +30,7 @@ const formatUI = (passedMap: object) => {
             ${moduleKey}
           </button>
           <img class="checkIcon" id="check${moduleKey}" src="./checked.png" alt="passed" />
+          <span id="completion${moduleKey}" style="font-size:16px"></span>
         </h2>
       </div>
 
@@ -37,9 +38,10 @@ const formatUI = (passedMap: object) => {
         <div class="card-body" id="${moduleKey}Child">
       `;
 
-      let childCount = 1;
+      let sectionCount: number = 0, challengeCount: number = 0, completedChallengeCount: number = 0;
       Object.keys(moduleData[courseKey][moduleKey]).forEach((sectionKey: string) => {
-        const sectionCollapseId = `collapse${moduleKey}${childCount}`;
+        sectionCount++;
+        const sectionCollapseId = `collapse${moduleKey}${sectionCount}`;
         innerHTML += `
         <div class="card">
           <div class="card-header">
@@ -50,8 +52,15 @@ const formatUI = (passedMap: object) => {
           <ul>
         `;
         Object.keys(moduleData[courseKey][moduleKey][sectionKey]).forEach((challengeKey: string) => {
-          //Check if any challenge is not completed
-          passedMap[moduleData[courseKey][moduleKey][sectionKey][challengeKey]] ? isModuleCompleted = true : isModuleCompleted = false;
+          challengeCount++;
+
+          //Check if any challenge is not completed and count the number of completed challenges
+          if (passedMap[moduleData[courseKey][moduleKey][sectionKey][challengeKey]]) {
+            completedChallengeCount++;
+          } else {
+            isModuleCompleted = false;
+          }
+
           innerHTML += `
         <li data-url="${moduleData[courseKey][moduleKey][sectionKey][challengeKey]}">
           <img class="checkIcon" src="${passedMap[moduleData[courseKey][moduleKey][sectionKey][challengeKey]] ? './checked.png' : './unchecked.png'}" alt="passed" />${challengeKey}
@@ -59,9 +68,14 @@ const formatUI = (passedMap: object) => {
         });
 
         // Update the check icon of the module based on the completion status of the module
-        if(isModuleCompleted === false) innerHTML = innerHTML.replace(`id="check${moduleKey}" src="./checked.png"`,`id="check${moduleKey}" src="./unchecked.png"`);
+        if (isModuleCompleted === false) innerHTML = innerHTML.replace(`id="check${moduleKey}" src="./checked.png"`, `id="check${moduleKey}" src="./unchecked.png"`);
+
         innerHTML += '</ul></div></div>';
       });
+      // Update the completion status of the module
+      let completionPercent: number = Math.floor(completedChallengeCount * 100 / challengeCount);
+      innerHTML = innerHTML.replace(`<span id="completion${moduleKey}" style="font-size:16px"></span>`, `<span id="completion${moduleKey}" style="font-size:16px">${completedChallengeCount}/${challengeCount} - ${completionPercent}%</span>`);
+
       innerHTML += '</div></div></div>';
     });
 
