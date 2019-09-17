@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "CityU FCC Extension",
-  "version": "0.5",
+  "version": "0.6",
   "description": "The extension that can help using FCC more effectively.",
   "icons": {
     "16": "icon16.png",
