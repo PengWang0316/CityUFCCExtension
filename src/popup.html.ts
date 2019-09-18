@@ -15,12 +15,12 @@ const formatUI = (passedMap: object) => {
 
   Object.keys(moduleData).forEach((courseKey: string) => {
     const coursePrefix = courseKey.slice(0, 5);
+    let totalChallengeCount: number = 0, totalCompletedChallengeCount: number = 0;
     let innerHTML = `
       <div><h5>${courseKey}</h5></div>
       <div class="accordion" id="${coursePrefix}">
     `;
     Object.keys(moduleData[courseKey]).forEach((moduleKey: string) => {
-      let isModuleCompleted: boolean = true;
       const moduleCollapseId = `collapse${moduleKey}`;
       innerHTML += `
       <div class="card">
@@ -52,13 +52,11 @@ const formatUI = (passedMap: object) => {
           <ul>
         `;
         Object.keys(moduleData[courseKey][moduleKey][sectionKey]).forEach((challengeKey: string) => {
-          challengeCount++;
+          challengeCount++; totalChallengeCount++;
 
           //Check if any challenge is not completed and count the number of completed challenges
           if (passedMap[moduleData[courseKey][moduleKey][sectionKey][challengeKey]]) {
-            completedChallengeCount++;
-          } else {
-            isModuleCompleted = false;
+            completedChallengeCount++; totalCompletedChallengeCount++;
           }
 
           innerHTML += `
@@ -67,18 +65,20 @@ const formatUI = (passedMap: object) => {
         </li>`;
         });
 
-        // Update the check icon of the module based on the completion status of the module
-        if (isModuleCompleted === false) innerHTML = innerHTML.replace(`id="check${moduleKey}" src="./checked.png"`, `id="check${moduleKey}" src="./unchecked.png"`);
-
         innerHTML += '</ul></div></div>';
       });
       // Update the completion status of the module
       let completionPercent: number = Math.floor(completedChallengeCount * 100 / challengeCount);
+      let checkIcon: string = (completedChallengeCount === challengeCount) ? "./checked.png" : "./unchecked.png";
+      innerHTML = innerHTML.replace(`id="check${moduleKey}" src="./checked.png"`, `id="check${moduleKey}" src="${checkIcon}"`);
       innerHTML = innerHTML.replace(`<span id="completion${moduleKey}" style="font-size:16px"></span>`, `<span id="completion${moduleKey}" style="font-size:16px">${completedChallengeCount}/${challengeCount} - ${completionPercent}%</span>`);
 
       innerHTML += '</div></div></div>';
     });
 
+    // Update completetion status of the course
+    let completionPercent: number = Math.floor(totalCompletedChallengeCount * 100 / totalChallengeCount);
+    innerHTML = innerHTML.replace(`<div><h5>${courseKey}</h5></div>`, `<div><h5>${courseKey} (${totalCompletedChallengeCount}/${totalChallengeCount} - ${completionPercent}%)</h5></div>`);
     innerHTML += '</div>';
     mainElement.html(innerHTML);
 
