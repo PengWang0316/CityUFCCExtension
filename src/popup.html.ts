@@ -15,7 +15,8 @@ const formatUI = (passedMap: object) => {
 
   Object.keys(moduleData).forEach((courseKey: string) => {
     const coursePrefix = courseKey.slice(0, 5);
-    let totalChallengeCount: number = 0, totalCompletedChallengeCount: number = 0;
+    let totalChallengeCount = 0;
+    let totalCompletedChallengeCount = 0;
     let innerHTML = `
       <div><h5>${courseKey}</h5></div>
       <div class="accordion" id="${coursePrefix}">
@@ -38,7 +39,9 @@ const formatUI = (passedMap: object) => {
         <div class="card-body" id="${moduleKey}Child">
       `;
 
-      let sectionCount: number = 0, challengeCount: number = 0, completedChallengeCount: number = 0;
+      let sectionCount = 0;
+      let challengeCount = 0;
+      let completedChallengeCount = 0;
       Object.keys(moduleData[courseKey][moduleKey]).forEach((sectionKey: string) => {
         sectionCount++;
         const sectionCollapseId = `collapse${moduleKey}${sectionCount}`;
@@ -52,11 +55,13 @@ const formatUI = (passedMap: object) => {
           <ul>
         `;
         Object.keys(moduleData[courseKey][moduleKey][sectionKey]).forEach((challengeKey: string) => {
-          challengeCount++; totalChallengeCount++;
+          challengeCount++;
+          totalChallengeCount++;
 
-          //Check if any challenge is not completed and count the number of completed challenges
+          // Check if any challenge is not completed and count the number of completed challenges
           if (passedMap[moduleData[courseKey][moduleKey][sectionKey][challengeKey]]) {
-            completedChallengeCount++; totalCompletedChallengeCount++;
+            completedChallengeCount++;
+            totalCompletedChallengeCount++;
           }
 
           innerHTML += `
@@ -68,8 +73,8 @@ const formatUI = (passedMap: object) => {
         innerHTML += '</ul></div></div>';
       });
       // Update the completion status of the module
-      let completionPercent: number = Math.floor(completedChallengeCount * 100 / challengeCount);
-      let checkIcon: string = (completedChallengeCount === challengeCount) ? "./checked.png" : "./unchecked.png";
+      const completionPercent = Math.floor((completedChallengeCount * 100) / challengeCount);
+      const checkIcon = (completedChallengeCount === challengeCount) ? './checked.png' : './unchecked.png';
       innerHTML = innerHTML.replace(`id="check${moduleKey}" src="./checked.png"`, `id="check${moduleKey}" src="${checkIcon}"`);
       innerHTML = innerHTML.replace(`<span id="completion${moduleKey}" style="font-size:16px"></span>`, `<span id="completion${moduleKey}" style="font-size:16px">${completedChallengeCount}/${challengeCount} - ${completionPercent}%</span>`);
 
@@ -77,13 +82,13 @@ const formatUI = (passedMap: object) => {
     });
 
     // Update completetion status of the course
-    let completionPercent: number = Math.floor(totalCompletedChallengeCount * 100 / totalChallengeCount);
+    const completionPercent = Math.floor((totalCompletedChallengeCount * 100) / totalChallengeCount);
     innerHTML = innerHTML.replace(`<div><h5>${courseKey}</h5></div>`, `<div><h5>${courseKey} (${totalCompletedChallengeCount}/${totalChallengeCount} - ${completionPercent}%)</h5></div>`);
     innerHTML += '</div>';
     mainElement.html(innerHTML);
 
     // Add event listeners
-    $(mainElement).find('li').toArray().forEach((li) => li.addEventListener('click', sendClick));
+    $(mainElement).find('li').toArray().forEach((li: HTMLElement) => li.addEventListener('click', sendClick));
   });
 };
 
