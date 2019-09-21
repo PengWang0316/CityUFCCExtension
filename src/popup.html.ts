@@ -5,7 +5,13 @@ const FCC_URL = 'https://learn.freecodecamp.org/';
 
 // Use a url from the GitHub directly since the gist URL will change after each update
 const DATA_URL = 'https://raw.githubusercontent.com/PengWang0316/CityUFCCExtension/master/CourseData.json';
-let moduleData;
+let moduleData: {
+  [module: string]: {
+    [sction: string]: {
+      [title: string]: string;
+    };
+  };
+};
 
 // The method can send the click event to the content page
 const sendClick = (event: Event) => chrome.tabs.query({ url: FCC_URL }, (tabs) => chrome.tabs.sendMessage(tabs[0].id, { url: $(event.target).attr('data-url') }));
