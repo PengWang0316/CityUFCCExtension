@@ -7,8 +7,7 @@ const MARK_BG_COLOR = 'yellow';
 // interface NewElement extends Element {
 //   offsetTop: number;
 // }
-let lastElement;
-// let javascriptSction;
+let lastElement: HTMLElement;
 
 const emphasizeElement = (url: string) => {
   if (lastElement) lastElement.style.backgroundColor = '';
@@ -28,11 +27,11 @@ const clickAllSubSection = (element: HTMLElement) => {
 
 // Find the JavaScript section
 const getJavaScriptSection = (isFirst = false): HTMLElement => {
-  let javascriptSction;
+  let javascriptSction: HTMLElement;
   document.querySelectorAll('h4').forEach((element: HTMLElement) => {
     if (element.innerText === JAVASCRIPT_SECTION_TITLE) {
       if (isFirst) element.click();
-      javascriptSction = element.parentNode.parentNode.lastChild;
+      javascriptSction = element.parentNode.parentNode.lastChild as HTMLElement;
     }
   });
   return javascriptSction;
